@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/">Logout</ion-back-button>
+    </ion-buttons>
+    <ion-title>โหมดพนักงาน</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="background">
+    <ion-card style="padding:10px 20px 10px 10px;">
+      <div style="text-align: center;">
+        <h4>รายการสั่งซื้อ</h4>
+        <ion-progress-bar style="margin: 0 0 0 0;" value="1" color="success"></ion-progress-bar>
+      </div>
+        <ion-list>
+          <ion-item *ngFor="let bill of allBills">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                  <div style="margin: auto;padding: 5px 5px 5px 5px;">
+                    <ion-label>
+                      <h3>
+                        ชื่อลูกค้า : {{bill.user}}
+                      </h3>
+                      <h3>
+                        รหัสอ้างอิง : {{bill.id}}
+                      </h3>
+                        <ion-chip outline color="danger">
+                          <ion-label>ยอดชำระเงิน {{bill.payment}} บาท</ion-label>
+                        </ion-chip>
+                        <h6>
+                          เวลาชำระเงิน : {{bill.time}} นาฬิกา โดยประมาณ
+                        </h6>
+                        <h6>
+                          ที่อยู่จัดส่ง : {{bill.address}}
+                        </h6>
+                        
+                      
+                    </ion-label>
+                  </div>
+                </ion-col>
+                <ion-button class="button" color="warning" (click)="seeDetail(bill.user)">
+                  <ion-icon name="navigate-outline" style="font-size: 18px;">slot="start"></ion-icon>
+                  ดูรายการ
+                </ion-button>
+                <ion-button size="small" color="danger" (click)="presentAlertConfirm(bill.id)">
+                  ลบรายการ <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+    </ion-card>
+
+
+    <ion-card style="padding:10px 20px 10px 10px;">
+      <div style="text-align: center;">
+        <h4>เพิ่มเมนูอาหาร</h4>
+        <ion-progress-bar style="margin: 0 0 0 0;" value="1" color="danger"></ion-progress-bar>
+      </div>
+<ion-item >
+      <ion-row>
+        <ion-col size="5">
+          ชื่อเมนูอาหาร
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+          <ion-label>
+            <ion-input required [(ngModel)]="menuRecord.name" placeholder="กำหนดชื่อเมนู"
+              style="font-family: 'Caveat', cursive;font-size: 18px;"></ion-input>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-row>
+        <ion-col size="5">
+          <ion-label position="stacked">กำหนดราคา</ion-label>        
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+          <ion-label>
+            <ion-input required [(ngModel)]="menuRecord.price" placeholder="กำหนดราคา"
+              style="font-family: 'Caveat', cursive;font-size: 18px;"></ion-input>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-row>
+        <ion-col size="5">
+          <ion-label position="stacked">ระดับคะแนน 1-5</ion-label>
+          
+        </ion-col>
+        <ion-col size="1">
+          :
+        </ion-col>
+        <ion-col size="6">
+          <ion-label>
+            <ion-input required [(ngModel)]="menuRecord.star" placeholder="คะแนน"
+              style="font-family: 'Caveat', cursive;font-size: 18px;"></ion-input>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+    <ion-card color="medium">
+
+    <ion-select required [(ngModel)]="menuRecord.type" placeholder="กำหนดประเภทอาหาร">
+      <ion-select-option value="">กรุณาเลือกประเภท</ion-select-option>
+      <ion-select-option value="thai">Thai</ion-select-option>
+      <ion-select-option value="esan">Esan</ion-select-option>
+      <ion-select-option value="italian">Italian</ion-select-option>
+      <ion-select-option value="fastfood">FastFood</ion-select-option>
+      <ion-select-option value="drink">Drink</ion-select-option>
+      <ion-select-option value="dessert">Snack</ion-select-option>
+    </ion-select>
+  </ion-card>
+
+  <div style="text-align: center;">
+    <ion-button class="button" color="tertiary" (click)="addServices(menuRecord,menuRecord.name)">
+      <ion-icon name="navigate-outline" style="font-size: 18px;">slot="start"></ion-icon>
+      เพิ่มเมนูอาหาร
+    </ion-button>
+  </div>
+    </ion-card>
+    
+
+  
+
+  <!-- <ion-card class="ion-text-center" *ngIf="!isUploading && !isUploaded">
+    <ion-card-header>
+      <ion-card-title>Choose Images to Upload</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="primary" shape="round" size="medium">
+        <input type="file" (change)="uploadImage($event.target.files)" />
+      </ion-button>
+    </ion-card-content>
+  </ion-card> -->
+
+
+</ion-content>

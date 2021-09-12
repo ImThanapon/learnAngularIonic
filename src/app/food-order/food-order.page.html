@@ -1,0 +1,226 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start" (click)="presentAlertOut()">
+      ยกเลิก <ion-icon name="log-out"></ion-icon>
+      <!-- <ion-back-button defaultHref="/"></ion-back-button> -->
+    </ion-buttons>
+    <ion-title>
+      <ion-row>
+        <ion-col size="3">
+          <div>
+            <ion-img style="width: 30px; height: 30px;" src="../assets/icon/logo.png"></ion-img>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div style="margin-top: 5px;">
+            ร้านนี้ มีหมีนะ
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+  <ion-fab vartical="bottom" horizontal="end" style="margin-top: 20px;">
+    <ion-fab-button color="danger" (click)="gotoCart()">
+      <ion-img style="width: 40px;height: 40px;" src="http://simpleicon.com/wp-content/uploads/basket-plus.svg"></ion-img>
+    </ion-fab-button>
+  </ion-fab>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">
+ <!-- <ion-card>
+  <div class="ion-text-center" style="margin-top: 15px; padding:1px 5px 1px 5px;">
+    <ion-row>
+      <ion-col size="2">
+        <ion-avatar>
+          <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg">
+        </ion-avatar>
+      </ion-col>
+      <ion-col style="margin-left: 5px;text-align: left;">
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-badge color="primary">ชื่อลูกค้า : {{ inputData.user }}</ion-badge><br>
+            <ion-badge color="success">Email : {{ inputData.email }}</ion-badge><br>
+            <ion-badge color="warning">เบอร์โทรศัพท์ : {{ inputData.tel }}</ion-badge><br>
+            <ion-badge color="danger">ที่อยู่ :{{ inputData.address }}</ion-badge>
+    
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    
+  </div>
+
+  </ion-card> -->
+
+  <ion-card class="ion-text-center" style="margin-top: 10px; padding-top: 5px;">
+    <h3>3 ขั้นตอนแห่งความอร่อย</h3>
+    <ion-row>
+      <ion-col>
+        <!-- <ion-card color="medium" style="margin: 0 0 5px 0; padding: 0 0 5px 0;">
+          <div>
+            เลือกอาหาร
+          </div>
+        </ion-card> -->
+        
+        กรอกข้อมูล
+       
+
+      </ion-col>
+      <ion-col>
+        <div color="danger" style="background-color:gray;color: honeydew;">
+          เลือกอาหาร
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          ชำระเงิน
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-progress-bar style="margin: 0 0 0 0;" value="0.32" color="danger"></ion-progress-bar>
+    <ion-row>
+      <ion-col size="8">
+        <ion-searchbar [(ngModel)]="searchString"></ion-searchbar>
+      </ion-col>
+      <ion-col style="margin: auto;" size="4">
+        <ion-select [(ngModel)]="type">
+          <ion-select-option value="">All</ion-select-option>
+          <ion-select-option value="thai">Thai</ion-select-option>
+          <ion-select-option value="esan">Esan</ion-select-option>
+          <ion-select-option value="italian">Italian</ion-select-option>
+          <ion-select-option value="fastfood">FastFood</ion-select-option>
+          <ion-select-option value="drink">Drink</ion-select-option>
+          <ion-select-option value="dessert">Snack</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+
+
+
+
+
+  <!-- <ion-card style="padding-left: 0px;"> -->
+  <ion-list>
+    <ion-item *ngFor="let record of allMenu | filter:searchString | filter:type">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+
+
+
+              <div *ngIf="record.star == '1'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+              </div>
+              <div *ngIf="record.star == '2'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+              </div>
+              <div *ngIf="record.star == '3'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+              </div>
+              <div *ngIf="record.star == '4'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" name="star"></ion-icon>
+              </div>
+              <div *ngIf="record.star == '5'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+              </div>
+
+
+            <ion-thumbnail style="margin-left: 4px;text-align: center;">
+              <img [src]="record.image">
+            </ion-thumbnail>
+            
+          </ion-col>
+          <ion-col size="7">
+            <div style="margin: auto;padding: 5px 5px 5px 5px;">
+              <ion-label>
+                <h3>
+                  ชื่อเมนู : {{record.name}}
+                </h3>
+
+                <div *ngIf="(record.price<=50)">
+                  ราคา
+                  <ion-chip outline color="success">
+                    <ion-label>{{record.price}} บาท</ion-label>
+                  </ion-chip>
+                </div>
+                <div *ngIf="(record.price>50 && record.price<100)">
+                  ราคา
+                  <ion-chip outline color="warning">
+                    <ion-label>{{record.price}} บาท</ion-label>
+                  </ion-chip>
+                </div>
+                <div *ngIf="(record.price>=100)">
+                  ราคา
+                  <ion-chip outline color="danger">
+                    <ion-label>{{record.price}} บาท</ion-label>
+                  </ion-chip>
+                </div>
+                <!-- <ion-row>
+                    <ion-col>
+                      <ion-icon color="warning" name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </ion-col>
+                  </ion-row> -->
+              </ion-label>
+            </div>
+          </ion-col>
+          <ion-col style="margin: auto;" size="2">
+            {{record.price}}
+            <div>
+              <ion-img (click)="addOrder(record,inputData.user)" style="width: 40px;height: 40px;" src='http://simpleicon.com/wp-content/uploads/basket-plus.svg'>
+              </ion-img>
+              
+            </div>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+  <!-- </ion-card> -->
+
+</ion-content>
+<ion-footer>
+  <div class="button-next button">
+    <ion-button style="margin: auto; width: 300px;" expand="block" color="danger" (click)="presentAlertNext()">
+      <ion-row>
+        <ion-col>
+          สั่งอาหาร
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="fast-food-outline"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-button>
+  </div>
+</ion-footer>

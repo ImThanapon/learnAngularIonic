@@ -1,0 +1,204 @@
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-title style="text-align: left;">
+        <ion-icon name="play-back-circle-outline" style="margin-top: 10px;"></ion-icon>
+        ร้านนี้ มีหมีนะ
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="gotoAdminDashboard()">
+        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+        <ion-label>โหมดผู้ดูแลระบบ</ion-label>
+      </ion-item>
+      <ion-item (click)="gotoOrderPage()">
+        <ion-icon name="fast-food-outline" slot="start"></ion-icon>
+        <ion-label>เลือกอาหาร</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<ion-router-outlet id="main"></ion-router-outlet>
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-button expand="block" onclick="openMenu()">
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="gotoCart()">
+        <ion-icon name="basket"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    <ion-title>
+      <ion-row>
+        <ion-col size="3">
+          <div>
+            <ion-img style="width: 30px; height: 30px;" src="../assets/icon/logo.png"></ion-img>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div style="margin-top: 5px;">
+            ร้านนี้ มีหมีนะ
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+  <ion-content [fullscreen]="true" class="background">
+
+    <!-- <ion-card class="ion-text-center" style="margin-top: 15px; padding:10px 10px 10px 10px;">
+      <ion-row>
+        <ion-col size="2">
+          <ion-avatar>
+            <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg">
+          </ion-avatar>
+        </ion-col>
+        <ion-col style="margin-left: 5px;text-align: left;">
+            
+            <ion-badge color="primary">Name</ion-badge><br>         
+            <ion-badge color="success">Phone</ion-badge><br>  
+            <ion-badge color="warning">Address</ion-badge>
+        </ion-col>
+      </ion-row>
+      
+    </ion-card> -->
+
+    <div class="image-silder" style="margin-top: 15px; padding:10px 10px 10px 10px;">
+      <ion-slides pager="true">
+        <ion-slide>
+          <img src="../assets/image/img_silde_01.png" alt="">
+        </ion-slide>
+        <ion-slide>
+          <img src="../assets/image/img_silde_02.png" alt="">
+        </ion-slide>
+        <ion-slide>
+          <img src="../assets/image/img_silde_03.png" alt="">
+        </ion-slide>
+      </ion-slides>
+
+    </div>
+
+    <ion-card style="padding: 0px 1px 0px 1px;">
+      <ion-button expand="block" color="danger" (click)="gotoInputData()">
+        <ion-row>
+          <ion-col>
+            สั่งอาหารเลย
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-icon name="fast-food-outline"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+
+      </ion-button>
+
+    </ion-card>
+
+
+
+
+    <div *ngFor="let record of allMenu; let i = index">
+      <ion-card>
+        <ion-item-sliding>
+          <ion-item>
+            <ion-row style="text-align: right;">
+              <ion-col slot="start">
+                
+              </ion-col>
+              <ion-col>
+                <div *ngIf="record.star == '1'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                </div>
+                <div *ngIf="record.star == '2'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                </div>
+                <div *ngIf="record.star == '3'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                </div>
+                <div *ngIf="record.star == '4'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" name="star"></ion-icon>
+                </div>
+                <div *ngIf="record.star == '5'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+          <ion-item-options >
+            <ion-item-option color="warning" (click)="gotoInputData()">
+              <ion-icon name="add-outline"></ion-icon>
+              สั่งเลย
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+  
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="record.image">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>
+              ชื่อเมนู : {{record.name}}
+            </h2>
+            
+            <div *ngIf="(record.price<=50)">
+              ราคา 
+              <ion-chip outline color="success">
+                <ion-label>{{record.price}} บาท</ion-label>
+              </ion-chip>
+            </div>
+            <div *ngIf="(record.price>50 && record.price<100)">
+              ราคา 
+              <ion-chip outline color="warning">
+                <ion-label>{{record.price}} บาท</ion-label>
+              </ion-chip>
+            </div>
+            <div *ngIf="(record.price>=100)">
+              ราคา 
+              <ion-chip outline color="danger">
+                <ion-label>{{record.price}} บาท</ion-label>
+              </ion-chip>
+            </div>
+  
+            <p>
+              ร้าน : ป้าฝน
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+    </div>
+
+    <!-- <ion-footer>
+    <ion-toolbar>
+      <ion-title>ร้านนี้ มีหมีนะ </ion-title>
+    </ion-toolbar>
+  </ion-footer> -->
+
+  </ion-content>

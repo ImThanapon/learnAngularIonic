@@ -1,0 +1,48 @@
+    ion-content.background{
+        --background: url(https://images.unsplash.com/photo-1589568365171-77cdf21d2ed6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) no-repeat center/cover fixed;
+        opacity: 0.8;
+
+    }
+
+  .card{
+      width: 75%;
+      background-color: azure;
+      height: 50%;
+      position: absolute;
+      margin-left: 10%;
+  }
+
+
+  .icon-review{
+      
+    border: 2px solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 100%;
+  }
+  .msg-review{
+    padding: 0px 10px 10px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .msg-r{
+    text-align: right;
+  }
+
+
+  .msg-l{
+    text-align: left;
+  }
+
+  .star{
+    margin-top: 20px;
+    width: 15px; 
+    height: 15px;
+    text-shadow: 10px 10px 5px grey;
+}
+
+div.msg{
+  padding: 5px 5px 5px 5px;
+  border: 2px solid gray;
+  border-radius: 8px;
+  margin-top: 7px;
+}

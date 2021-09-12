@@ -1,0 +1,97 @@
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-title style="text-align: left;"><ion-icon name="play-back-circle-outline" style="margin-top: 10px;"></ion-icon>
+        ร้านนี้ มีหมีนะ
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>  <ion-searchbar placeholder="Filter Pizza" ></ion-searchbar>
+      
+      <ion-item>
+       
+        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+        <ion-label>User</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail-outline"slot="start"></ion-icon>
+        <ion-label>comment</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="heart" slot="start"></ion-icon>
+        <ion-label>Favorites</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="archive" slot="start"></ion-icon>
+        <ion-label>Archived</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="trash" slot="start"></ion-icon>
+        <ion-label>Trash</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="warning" slot="start"></ion-icon>
+        <ion-label>Spam</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-header [translucent]="true" >
+  <ion-toolbar  color="danger">
+    <ion-title>
+      <ion-row>
+        <ion-col size="3" >
+          <div >
+            <ion-img style="width: 30px; height: 30px;" src="../assets/icon/logo.svg" ></ion-img>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div style="margin-top: 5px;">
+            ร้านนี้ มีหมีนะ
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+<ion-content [fullscreen]="true" class="background">
+
+  <ion-card class="card">
+    <div style="text-align: center;">
+ <h3>รายชื่อผู้พัฒนา</h3>
+    </div>
+   
+    <ion-progress-bar style="margin: 0 0 0 0;" value="1" color="success"></ion-progress-bar>
+    <ion-item style="padding-top: 20px;">
+      <ion-thumbnail slot="start">
+        <img src="https://cdn.iconscout.com/icon/free/png-512/boy-avatar-4-1129037.png">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          นายธนพล วิเศษสังข์
+        </h3>
+        <h4>
+        รหัสนิสิต 6121600233
+        </h4>
+      </ion-label>
+  </ion-item>
+    <ion-item style="padding-top: 20px;">
+      <ion-thumbnail slot="start">
+        <img src="https://admacademy.in/wp-content/uploads/2020/04/91-512.png">
+      </ion-thumbnail>
+        <ion-label>
+          <h3>
+            นายภูดิศ เอี่ยมสอาด
+          </h3>
+          <h4>
+            รหัสนิสิต 6121604018
+          </h4>
+        </ion-label>
+    </ion-item>
+  </ion-card>
+      
+</ion-content>
+
+
+

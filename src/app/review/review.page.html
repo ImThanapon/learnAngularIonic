@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-img style="width: 30px; height: 30px;" src="../assets/icon/logo.png"></ion-img>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div style="margin-top: 5px;">
+            Review ให้คะแนน
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" class="background">
+  <ion-card class="ion-text-center" style="margin-top: 30px; padding: 10px 0px 20px 0px;">
+    <ion-col>
+      <ion-icon class="star" color="warning" name="star"></ion-icon>
+      <ion-icon class="star" color="warning" name="star"></ion-icon>
+      <ion-icon class="star" color="warning" name="star"></ion-icon>
+      <ion-icon class="star" color="warning" name="star"></ion-icon>
+      <ion-icon class="star" color="warning" name="star"></ion-icon>
+    </ion-col>
+    <h3>แบบให้คะแนนความพึ่งพอใจ</h3>
+
+    <ion-progress-bar style="margin: 0 0 0 0;" value="1" color="warning"></ion-progress-bar>
+
+    <!-- <form (ngSubmit)="checkValid()" [formGroup]="inputForm" novalidate> -->
+    <ion-list style="padding: 15px 15px 15px 0px;">
+      <ion-item>
+        <ion-label position="stacked">ชื่อลูกค้า</ion-label>
+        <ion-input required [(ngModel)]="review.user" value="{{inputData.user}}"
+          placeholder="กรุณากรอก {{inputData.user}}"
+          style="font-family: 'Caveat', cursive;font-size: 18px;margin-left: -1px;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">ข้อความความคิดเห็น</ion-label>
+        <ion-input required [(ngModel)]="review.msg" placeholder="Enter your message"
+          style="font-family: 'Caveat', cursive;font-size: 18px;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">ระดับคะแนน 1-5</ion-label>
+        <ion-input required [(ngModel)]="review.point" style="font-family: 'Caveat', cursive;font-size: 18px;">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-row class="ion-text-center align-items-center">
+      <ion-col size="12">
+        <ion-row>
+          <ion-item-divider>
+            <ion-col size="1">
+
+            </ion-col>
+            <ion-col size="2">
+
+            </ion-col>
+            <ion-col size="6">
+              เมนู
+            </ion-col>
+            <ion-col size="3" class="ion-text-center align-items-center">
+              ราคา
+            </ion-col>
+          </ion-item-divider>
+        </ion-row>
+        <ion-row class="align-items-center" style="text-align: center;margin: 5px" *ngFor="let order of orderData;">
+          <ion-col size="1">
+
+          </ion-col>
+          <ion-col size="2">
+            <ion-thumbnail>
+              <img [src]="order.image" alt="">
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col size="6">
+            <ion-note style="padding-left: 10px">{{order.name}}</ion-note>
+          </ion-col>
+          <ion-col size="3">
+            <ion-note style="padding-left: 10px">{{order.price}}</ion-note>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+
+
+
+
+    <div style="text-align: center;margin-top: 5px;margin-bottom: 5px;">
+      <ion-button class="button" style="font-family: 'Caveat', cursive;font-size:14px;" color="danger"
+        (click)="addToFirebase(review)">
+        ต่อไป<ion-icon name="navigate-outline" style="font-size: 18px;">slot="start"></ion-icon>
+      </ion-button>
+    </div>
+    <!-- </form> -->
+  </ion-card>
+</ion-content>

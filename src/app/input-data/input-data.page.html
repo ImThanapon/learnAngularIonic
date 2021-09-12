@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-row>
+        <ion-col size="3">
+          <div>
+            <ion-img style="width: 30px; height: 30px;" src="../assets/icon/logo.png"></ion-img>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div style="margin-top: 5px;">
+            ร้านนี้ มีหมีนะ
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-card class="ion-text-center" style="margin-top: 30px; padding: 10px 0px 20px 0px;">
+    <h3>3 ขั้นตอนแห่งความอร่อย</h3>
+    <ion-row>
+      <ion-col>
+        <!-- <ion-card color="medium" style="margin: 0 0 5px 0; padding: 0 0 5px 0;">
+          <div>
+            เลือกอาหาร
+          </div>
+        </ion-card> -->
+        <div color="danger" style="background-color:gray;color: honeydew;">
+          กรอกข้อมูล
+        </div>
+
+      </ion-col>
+      <ion-col>
+        <div>
+          เลือกอาหาร
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          ชำระเงิน
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-progress-bar style="margin: 0 0 0 0;" value="0.65" color="warning"></ion-progress-bar>
+
+    <!-- <form (ngSubmit)="checkValid()" [formGroup]="inputForm" novalidate> -->
+      <ion-list style="padding: 15px 15px 15px 0px;">
+        <ion-item>
+          <ion-label position="stacked">ชื่อลูกค้า</ion-label>
+          <ion-input required [(ngModel)]="serviceRecord.user" placeholder="Enter your name" 
+            style="font-family: 'Caveat', cursive;font-size: 18px;margin-left: -1px;"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">อีเมล</ion-label>
+          <ion-input required [(ngModel)]="serviceRecord.email" placeholder="Enter your email"
+              style="font-family: 'Caveat', cursive;font-size: 18px;"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">เบอร์โทรติดต่อ</ion-label>
+          <ion-input required [(ngModel)]="serviceRecord.tel" placeholder="Enter your mobile number"
+          style="font-family: 'Caveat', cursive;font-size: 18px;"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">ที่อยู่จัดส่ง</ion-label>
+          <ion-input required [(ngModel)]="serviceRecord.address" placeholder="Enter your address"
+              style="font-family: 'Caveat', cursive;font-size: 18px;"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div style="text-align: center;margin-top: 5px;margin-bottom: 5px;">
+        <ion-button class="button" style="font-family: 'Caveat', cursive;font-size:14px;" color="danger"
+          (click)="addService(serviceRecord)">
+          ต่อไป<ion-icon name="navigate-outline" style="font-size: 18px;">slot="start"></ion-icon>
+        </ion-button>
+      </div>
+    <!-- </form> -->
+  </ion-card>
+
+ 
+
+
+
+
+  <!-- <div class="buttons">
+    <ion-button  style="margin: auto; width: 300px;" expand="block" color="danger" (click)="gotoFinishPage()">
+      <ion-row>
+        <ion-col>
+          ขั้นตอนต่อไป
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="fast-food-outline"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-button>
+  </div> -->
+
+
+</ion-content>

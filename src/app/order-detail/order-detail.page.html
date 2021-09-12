@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>รายละเอียดคำสั่งซื้อ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-card style="padding:10px 20px 10px 10px;">
+    <div style="text-align: center;">
+      <h4>รายการอาหารของลูกค้า</h4>
+      <ion-progress-bar style="margin: 0 0 0 0;" value="1" color="success"></ion-progress-bar>
+    </div>
+    <ion-list>
+      <ion-item *ngFor="let data of inputData;let i = index">
+                รายการที่ {{i+1}} : {{data.name}}
+      </ion-item>
+
+      
+    </ion-list>
+  </ion-card>
+
+</ion-content>

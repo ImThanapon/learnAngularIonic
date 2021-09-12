@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>
+      <ion-row>
+        <ion-col size="3">
+          <div>
+            <ion-img style="width: 30px; height: 30px;" src="../assets/icon/logo.png"></ion-img>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div style="margin-top: 5px;">
+            ร้านนี้ มีหมีนะ
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium">
+
+  <ion-card>
+    <div class="ion-text-center" style="margin-top: 15px; padding:1px 5px 1px 5px;">
+      <ion-row>
+        <ion-col size="2">
+          <ion-avatar>
+            <img src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg">
+          </ion-avatar>
+        </ion-col>
+        <ion-col style="margin-left: 5px;text-align: left;">
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-badge color="primary">ชื่อลูกค้า : {{ inputData.user }}</ion-badge><br>
+              <ion-badge color="success">Email : {{ inputData.email }}</ion-badge><br>
+              <ion-badge color="warning">เบอร์โทรศัพท์ : {{ inputData.tel }}</ion-badge><br>
+              <ion-badge color="danger">ที่อยู่ :{{ inputData.address }}</ion-badge>
+
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+    
+
+
+      <ion-row>
+        <ion-col>
+
+
+          กรอกข้อมูล
+
+
+        </ion-col>
+        <ion-col>
+          เลือกอาหาร
+        </ion-col>
+        <ion-col>
+          <div color="danger" style="background-color:gray;color: honeydew;">
+            ชำระเงิน
+          </div>
+
+        </ion-col>
+      </ion-row>
+
+      <ion-progress-bar style="margin: 0 0 0 0;" value="1" color="success"></ion-progress-bar>
+
+    <div class="ion-text-center" style="margin-top: 10px; padding-top: 5px;">
+      <h3>ช่องทางชำระเงิน </h3>
+      <h6>พร้อมเพย์ 0619807818 <br>ชื่อบัญชี นายธนพล วิเศษสังข์</h6>
+
+
+      <img src="../assets/image/prompay.png">
+      <h2>ยอดชำระ <u>{{total_price}}</u> บาท</h2>
+      <h5><u>รหัสอ้างอิง {{total_price}}{{inputData.tel}}</u> </h5>
+      <h4>กรุณาชำระเงินภายในเวลาที่กำหนด</h4>
+      <ion-button style="border-radius: 15px;" color="warning">
+        <h4>
+          <countdown [config]="{ leftTime:1800 }"></countdown>
+        </h4>
+      </ion-button>
+      <h6 style="color: chocolate;">หากเกินระยะเวลาที่กำหนด <br> ท่านจะได้รับคิวในลำดับถัดไป</h6>
+      
+      <ion-row class="ion-text-center align-items-center">
+        <ion-col size="12">
+          <ion-row>
+            <ion-item-divider>
+              <ion-col size="2">
+
+              </ion-col>
+              <ion-col size="7">
+                เมนู
+              </ion-col>
+              <ion-col size="3" class="ion-text-center align-items-center">
+                ราคา
+              </ion-col>
+            </ion-item-divider>
+          </ion-row>
+          <ion-row class="align-items-center" style="text-align: center;margin: 5px" *ngFor="let record of allOrder;">
+            <ion-col size="2">
+              <ion-thumbnail>
+                <img [src]="record.image" alt="">
+              </ion-thumbnail>
+
+            </ion-col>
+            <ion-col size="7">
+              <ion-note style="padding-left: 10px">{{record.name}}</ion-note>
+            </ion-col>
+            <ion-col size="3">
+              <ion-note style="padding-left: 10px">{{record.price}}</ion-note>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-item-divider>
+              <ion-col size="5">
+                รวมเป็นเงิน
+              </ion-col>
+              <ion-col size="5">
+                {{total_price}}
+              </ion-col>
+              <ion-col size="2" class="ion-text-center align-items-center">
+                บาท
+              </ion-col>
+            </ion-item-divider>
+          </ion-row>
+
+          <h6 style="color: brown;">หมายเหตุ : กรุณาเตรียมเงินให้พอดีกับราคาอาหาร เพื่อความความรวดเร็วในการส่งมอบอาหาร
+          </h6>
+
+        </ion-col>
+      </ion-row>
+      <div class="">
+        <ion-button style="margin: auto; width: 300px; margin-bottom: 5px;" expand="block" color="danger"
+          (click)="gotoSendBill()">
+          <ion-row>
+            <ion-col>
+              แจ้งชำระเงิน
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-icon name="cash-outline"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-button>
+        <ion-button style="margin: auto; width: 300px; margin-bottom: 5px; " expand="block" color="warning"
+          (click)="gotoReviewPage()">
+          <ion-row>
+            <ion-col>
+              ให้คะแนน
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-icon name="star-outline"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-button>
+        <ion-button style="margin: auto; width: 300px; margin-bottom: 5px;" expand="block" color="primary" (click)="gotoHomePage()">
+          <ion-row>
+            <ion-col>
+              กลับสู่หน้าหลัก
+            </ion-col>
+            <ion-col>
+              <div>
+                <ion-icon name="home-outline"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+
+  </ion-card>
+</ion-content>

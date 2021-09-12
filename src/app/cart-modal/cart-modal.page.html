@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-row>
+        <ion-col size="3">
+          <div>
+            <ion-img style="width: 30px; height: 30px;" src="../assets/icon/logo.png"></ion-img>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div style="margin-top: 5px;">
+            ร้านนี้ มีหมีนะ
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="background">
+  <ion-card style="padding: 5px 5px 5px 5px;">
+    <ion-row class="ion-text-center align-items-center">
+      <ion-col size="12">
+        <ion-text>
+          <h4>ตะกร้าสินค้า</h4>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <ion-row>
+          <ion-item-divider>
+            <ion-col size="2">
+              
+            </ion-col>
+            <ion-col size="5">
+              เมนู
+            </ion-col>
+            <ion-col size="3" class="ion-text-center align-items-center">
+              ราคา
+            </ion-col>
+            <ion-col size="2" class="ion-text-center align-items-center">
+            </ion-col>
+          </ion-item-divider>
+        </ion-row>
+        <div *ngIf="allOrder==''">
+          ยังไม่มีสินค้า
+        </div>
+        <ion-row class="align-items-center" style="text-align: center;margin: 5px" *ngFor="let record of allOrder;">
+          <ion-col size="2">
+            <ion-thumbnail>
+              <img [src]="record.image" alt="">
+            </ion-thumbnail>
+            
+          </ion-col>
+          <ion-col size="5">
+            <ion-note style="padding-left: 10px">{{record.name}}</ion-note>
+          </ion-col>
+          <ion-col size="3">
+            <ion-note style="padding-left: 10px">{{record.price}}</ion-note>
+          </ion-col>
+          <ion-col size="2">
+            <!-- <ion-button size="small" color="primary" (click)="updateMenu(record)">
+              <ion-icon name="create-outline"></ion-icon>
+            </ion-button> -->
+            <ion-button size="small" color="danger" (click)="presentAlertConfirm(inputData.name,record.id)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row>
+          <ion-item-divider>
+            <ion-col size="2">
+              รวม
+            </ion-col>
+            <ion-col size="5">
+              
+            </ion-col>
+            <ion-col size="3" class="ion-text-center align-items-center">
+              {{total_price}}
+            </ion-col>
+            <ion-col size="2" class="ion-text-center align-items-center">
+              บาท
+            </ion-col>
+          </ion-item-divider>
+        </ion-row>
+        
+        
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

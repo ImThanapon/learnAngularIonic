@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-row>
+        <ion-col size="3">
+          <div>
+            <ion-img style="width: 30px; height: 30px;" src="../assets/icon/logo.png"></ion-img>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div style="margin-top: 5px;">
+            ร้านนี้ มีหมีนะ
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <div style="margin-top: 30px; padding: 10px 20px 20px 20px;">
+
+    <img style="width: 300px; height: 300px;" src="../assets/icon/logo.png">
+    <ion-progress-bar style="margin: 0 0 0 0;" value="1" color="success"></ion-progress-bar>
+    <!-- <form (ngSubmit)="checkValid()" [formGroup]="inputForm" novalidate> -->
+      <ion-list style="padding: 15px 15px 15px 0px;">
+        <ion-item>
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input required [(ngModel)]="data.user" placeholder="Enter your username" 
+            style="font-family: 'Caveat', cursive;font-size: 18px;margin-left: -1px;"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input required type="password" [(ngModel)]="data.pass" placeholder="Enter your password"
+              style="font-family: 'Caveat', cursive;font-size: 18px;"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div style="text-align: center;margin-top: 5px;margin-bottom: 5px;">
+        <ion-button class="button" style="font-family: 'Caveat', cursive;font-size:14px;" color="danger"
+          (click)="login(data)">
+          Login<ion-icon name="log-in-outline"></ion-icon>
+        </ion-button>
+      </div>
+    <!-- </form> -->
+  </div>
+
+ 
+
+
+
+
+  <!-- <div class="buttons">
+    <ion-button  style="margin: auto; width: 300px;" expand="block" color="danger" (click)="gotoFinishPage()">
+      <ion-row>
+        <ion-col>
+          ขั้นตอนต่อไป
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="fast-food-outline"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-button>
+  </div> -->
+
+
+</ion-content>

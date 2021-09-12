@@ -1,0 +1,129 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title>
+      <ion-row>
+        <ion-col size="3">
+          <div>
+            <ion-img style="width: 30px; height: 30px;" src="../assets/icon/logo.png"></ion-img>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div style="margin-top: 5px;">
+            ร้านนี้ มีหมีนะ
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+  <ion-content [fullscreen]="true" class="background">
+
+    <div *ngFor="let record of allComment; let i = index">
+      <div *ngIf="(i%2) == 0">
+        <ion-row class="msg-l">
+          <ion-col size="2" style="padding:25px 0px 0px 25px;">
+            <ion-thumbnail class="icon-review">
+              <img src="https://cdn.iconscout.com/icon/free/png-512/boy-avatar-4-1129037.png">
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col size="9">
+            <ion-card class="msg-review">
+              <div>
+                <div *ngIf="record.point == '1'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                </div>
+                <div *ngIf="record.point == '2'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                </div>
+                <div *ngIf="record.point == '3'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                </div>
+                <div *ngIf="record.point == '4'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                </div>
+                <div *ngIf="record.point == '5'">
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                  <ion-icon class="star" color="warning" name="star"></ion-icon>
+                </div>
+              </div>
+              <ion-label style="padding: 0px 0px 5px 5px;">
+
+                คุณ : {{record.user.substring(0,3)}}<span style="color: brown;">XXXX</span>
+              </ion-label>
+
+              <div class="msg">
+
+                {{record.msg}}
+              </div>
+
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngIf="(i%2) != 0">
+        <ion-row class="msg-r">
+          <ion-col size="1">
+          </ion-col>
+          <ion-col size="9">
+            <ion-card class="msg-review">
+              <div *ngIf="record.point == '1'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+              </div>
+              <div *ngIf="record.point == '2'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+              </div>
+              <div *ngIf="record.point == '3'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+              </div>
+              <div *ngIf="record.point == '4'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+              </div>
+              <div *ngIf="record.point == '5'">
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+                <ion-icon class="star" color="warning" name="star"></ion-icon>
+              </div>
+              <ion-label style="padding: 0px 0px 5px 5px;">
+                คุณ : {{record.user.substring(0,3)}}<span style="color: brown;">XXXX</span>
+              </ion-label>
+
+              <div class="msg">
+
+                {{record.msg}}
+              </div>
+            </ion-card>
+          </ion-col>
+          <ion-col size="2" style="padding:25px 25px 0px 0px;">
+            <ion-thumbnail class="icon-review">
+              <img src="https://admacademy.in/wp-content/uploads/2020/04/91-512.png">
+            </ion-thumbnail>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+
+    <ion-footer>
+      <ion-toolbar>
+        <ion-title>ร้านนี้ มีหมีนะ </ion-title>
+      </ion-toolbar>
+    </ion-footer>
+
+  </ion-content>
